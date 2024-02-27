@@ -1,3 +1,22 @@
+## 踩坑日記
+
+這個repo只是視覺化flame model，並不是fitting flame model
+
+不知道為什麼這的坑都有點怪啊...
+官方標註了python version要大於3.7(The code uses Python 3.7 and it is tested on PyTorch 1.4.)，但其他dependencies都需要python>=3.8...，這個issue也有提到[issue #15](https://github.com/soubhiksanyal/FLAME_PyTorch/issues/15)
+
+1. **AssertionError Torch not compiled with CUDA enabled**: 直接執行`python setup.py install`有遇到這個問題，原因是pytorch版本無法支援cuda，因此最後先用pytorch官網conda指令(ex. `conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.7 -c pytorch -c nvidia`)安裝好pytorch、torchvision之類套件後再執行這行就可以解決了
+2. **AttributeError: module 'numpy' has no attribute 'bool'**: 把numpy的版本換成1.23.1可以解決
+
+```
+conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.7 -c pytorch -c nvidia
+python setup.py install
+mkdir model
+python main.py
+```
+
+---
+
 # FLAME: Articulated Expressive 3D Head Model (PyTorch)
 
 This is an implementation of the [FLAME](http://flame.is.tue.mpg.de/) 3D head model in PyTorch.
