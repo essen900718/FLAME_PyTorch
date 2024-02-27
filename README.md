@@ -1,6 +1,6 @@
 ## 踩坑日記
 
-這個repo只是視覺化flame model，並不是fitting flame model
+這個repo是視覺化flame model，並不是fitting flame model
 
 不知道為什麼這的坑都有點怪啊...
 官方標註了python version要大於3.7(The code uses Python 3.7 and it is tested on PyTorch 1.4.)，但其他dependencies都需要python>=3.8...，這個issue也有提到[issue #15](https://github.com/soubhiksanyal/FLAME_PyTorch/issues/15)
